@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio - Novo Boliche</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #1f2a33;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: #35c16a;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .menu-hero {
+            height: 380px;
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+                        url('https://cdn.discordapp.com/attachments/1301943813463478454/1486080393949216838/IMG-20260324-WA0042.jpg?ex=69c433b7&is=69c2e237&hm=99e7072dd076039b4c0d2f5c13bbcd521004adff9e3eb52fa805fe6be326d16f');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .menu-hero h1 {
+            font-size: 48px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+        }
+
+        .section {
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #1f2a33;
+        }
+
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .photo-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .back-btn {
+            margin-top: 60px;
+            display: inline-block;
+            background: #1f2a33;
+            color: white;
+            padding: 14px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .back-btn:hover {
+            background: #35c16a;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger { display: block; }
+            nav { 
+                display: none; 
+                flex-direction: column; 
+                position: absolute; 
+                top: 100%; 
+                left: 0; 
+                width: 100%; 
+                background: #1f2a33; 
+                padding: 20px; 
+            }
+            nav.active { display: flex; }
+            .photos-grid {
+                grid-template-columns: 1fr;
+            }
+            .menu-hero h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">🎳 Novo Boliche</div>
+        
+        <nav id="nav-menu">
+            <a href="index.html">Início</a>
+            <a href="index.html#sobre">Sobre</a>
+            <a href="index.html#precos">Preços</a>
+            <a href="index.html#reserva">Reserva</a>
+            <a href="cardapio.html"><strong>Cardápio</strong></a>
+        </nav>
+
+        <div class="hamburger" id="hamburger">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="menu-hero">
+        <h1>Nosso Cardápio</h1>
+    </section>
+
+    <!-- IMAGENS DO CARDÁPIO -->
+    <section class="section">
+        <h2>Veja nossos produtos</h2>
+
+        <div class="photos-grid">
+            <div class="photo-card">
+                <img src="https://cdn.discordapp.com/attachments/1301943813463478454/1486080393949216838/IMG-20260324-WA0042.jpg?ex=69c433b7&is=69c2e237&hm=99e7072dd076039b4c0d2f5c13bbcd521004adff9e3eb52fa805fe6be326d16f" 
+                     alt="Cardápio Novo Boliche">
+            </div>
+
+            <div class="photo-card">
+                <img src="https://cdn.discordapp.com/attachments/1301943813463478454/1486080393596899529/IMG-20260324-WA0041.jpg?ex=69c433b7&is=69c2e237&hm=59f9dc0cf51e725530af963881dbf1d03b31a5936b19d72a9f870f03c077b1f6" 
+                     alt="Cardápio Novo Boliche">
+            </div>
+        </div>
+
+        <a href="index.html" class="back-btn">← Voltar para o Início</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="background:#1f2a33; color:white; text-align:center; padding:30px 10%;">
+        <p>© 2026 Novo Boliche - Todos os direitos reservados</p>
+        <p style="margin-top:10px;">
+            📞 <a href="https://wa.me/551123628092" target="_blank" style="color:#35c16a;">(11) 2362-8092</a>
+        </p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const nav = document.getElementById('nav-menu');
+
+            hamburger.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
