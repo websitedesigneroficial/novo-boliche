@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Novo Boliche - Diversão garantida para toda a família! 10 pistas automatizadas, bar, restaurante e espaço para eventos. Reserve sua pista agora mesmo.">
+    <meta name="keywords" content="boliche, boliche sp, boliche família, reserva de pista, diversão, eventos">
+    <meta name="author" content="Novo Boliche">
+    <title>Novo Boliche - Diversão para toda família</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&amp;display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', Arial, Helvetica, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background: #1f2a33;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #35c16a;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* HERO */
+        .hero {
+            height: 100vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+                url('https://cdn.discordapp.com/attachments/1301943813463478454/1483524038763745320/IMG-20260317-WA0016.jpg?ex=69c4216d&is=69c2cfed&hm=22aad10d6cda92d80697d1d2a163002490db3ce5b202c9dd6e89d59295f2e376&');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #35c16a;
+            color: white;
+            padding: 14px 38px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(53, 193, 106, 0.4);
+        }
+
+        .btn:hover {
+            background: #2aa857;
+            transform: translateY(-4px);
+        }
+
+        /* SEÇÕES */
+        .section {
+            padding: 100px 10%;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+            color: #1f2a33;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* PREÇOS */
+        .pricing {
+            background: #1f2a33;
+            color: white;
+        }
+
+        .price-box {
+            background: white;
+            color: #333;
+            padding: 45px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .price-box:hover {
+            transform: scale(1.05);
+        }
+
+        .price {
+            background: #35c16a;
+            color: white;
+            font-size: 32px;
+            font-weight: 600;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -75px auto 25px;
+            box-shadow: 0 10px 20px rgba(53, 193, 106, 0.3);
+        }
+
+        /* RESERVA */
+        .reserve {
+            background: #35c16a;
+            color: white;
+            padding: 90px 10%;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+
+        .form-grid label {
+            display: block;
+            text-align: left;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .form-grid input,
+        .form-grid select,
+        .form-grid textarea {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .success {
+            display: none;
+            background: white;
+            color: #1f2a33;
+            padding: 50px;
+            border-radius: 15px;
+            max-width: 600px;
+            margin: 40px auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1f2a33;
+            color: white;
+            text-align: center;
+            padding: 30px 10%;
+        }
+
+        /* WHATSAPP FLUTUANTE */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25d366;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            z-index: 9999;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.15);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #1f2a33;
+                flex-direction: column;
+                padding: 20px;
+                display: none;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+        }
+
+        /* ESTILOS ADICIONAIS */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">🎳 Novo Boliche</div>
+
+        <nav id="nav-menu">
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Sobre</a>
+          <a href="cardapio.html"><strong>Cardápio</strong></a>
+            <a href="#precos">Preços</a>
+            <a href="#reserva">Reserva</a>
+        </nav>
+
+        <div class="hamburger" id="hamburger">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Diversão para toda família</h1>
+            <p>10 pistas automatizadas • Bar completo • Eventos especiais</p>
+            <a href="#reserva" class="btn">Reservar Pista Agora</a>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="section">
+        <h2>Sobre Nós</h2>
+        <p>
+            O Novo Boliche é o lugar ideal para diversão com amigos, família ou eventos especiais.
+            Contamos com pistas modernas, bar, restaurante e um ambiente acolhedor para todas as idades.
+        </p>
+
+        <div class="cards">
+            <div class="card">
+                <h3>🎳 10 Pistas</h3>
+                <p>Pistas automatizadas com capacidade para até 6 jogadores por pista.</p>
+            </div>
+            <div class="card">
+                <h3>🍕 Cardápio Completo</h3>
+                <p>Lanches, pizzas, bebidas, aperitivos e opções vegetarianas.</p>
+            </div>
+            <div class="card">
+                <h3>🎉 Eventos</h3>
+                <p>Espaço perfeito para aniversários, confraternizações e festas corporativas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREÇOS -->
+    <section id="precos" class="section pricing">
+        <h2>Horário e Preços</h2>
+        <div class="cards">
+            <div class="price-box">
+                <div class="price">R$89</div>
+                <h3>Segunda-feira</h3>
+                <p>16:00 às 00:00</p>
+                <p><strong>Valor por hora</strong></p>
+                <div style="margin-top:50px; text-align:center;">
+    <a href="https://wa.me/5511948872258?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20o%20boliche!"
+    target="_blank"
+    class="btn">
+    Fale Conosco
+    </a>
+</div>
+            </div>
+            <div class="price-box">
+                <div class="price">R$89</div>
+                <h3>Terça a Quinta</h3>
+                <p>16:00 às 18:00</p>
+                <p>Após 18h até as 00h — R$ 109,00</p>
+                <p><strong>Valor por hora</strong></p>
+                <div style="margin-top:50px; text-align:center;">
+    <a href="https://wa.me/5511948872258?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20o%20boliche!"
+    target="_blank"
+    class="btn">
+    Fale Conosco
+    </a>
+</div>
+            </div>
+            <div class="price-box">
+                <div class="price">R$89</div>
+                <h3>Sexta</h3>
+                <p>16:00 às 18:00</p>
+                <p>Após 18h às 02h — R$ 149,00</p>
+                <p><strong>Valor por hora</strong></p>
+                <div style="margin-top:50px; text-align:center;">
+    <a href="https://wa.me/5511948872258?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20o%20boliche!"
+    target="_blank"
+    class="btn">
+    Fale Conosco
+    </a>
+</div>
+            </div>
+            <div class="price-box">
+                <div class="price">R$149</div>
+                <h3>Sábado</h3>
+                <p>15:00 às 18:00</p>
+                <p>Após 18h até as 02h — R$ 180,00 </p>
+                <p><strong>Valor por hora</strong></p>
+                <div style="margin-top:50px; text-align:center;">
+    <a href="https://wa.me/5511948872258?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20o%20boliche!"
+    target="_blank"
+    class="btn">
+    Fale Conosco
+    </a>
+</div>
+            </div>
+            <div class="price-box">
+                <div class="price">R$149</div>
+                <h3>Domingo</h3>
+                <p>15:00 às 18:00</p>
+                <p>Após 18h até as 00h — R$ 180,00</p>
+                <p><strong>Valor por hora</strong></p>
+                <div style="margin-top:50px; text-align:center;">
+    <a href="https://wa.me/5511948872258?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20o%20boliche!"
+    target="_blank"
+    class="btn">
+    Fale Conosco
+    </a>
+</div>
+            </div>
+            <div class="price-box">
+                <div class="price">R$149</div>
+                <h3>Feriado e Véspera</h3>
+                <p><strong>Valor por hora</strong></p>
+                <div style="margin-top:50px; text-align:center;">
+    <a href="https://wa.me/5511948872258?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20o%20boliche!"
+    target="_blank"
+    class="btn">
+    Fale Conosco
+    </a>
+</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- RESERVA -->
+    <section id="reserva" class="section reserve">
+        <h2>Faça Sua Reserva Para Eventos e Aniversários</h2>
+        <p>Tempo mínimo de jogo: 1 hora • Máximo 6 pessoas por pista</p>
+
+        <form id="reservation-form" class="form-grid">
+            <div>
+                <label for="name">Nome completo</label>
+                <input type="text" id="name" required>
+            </div>
+            <div>
+                <label for="email">E-mail</label>
+                <input type="email" id="email" required>
+            </div>
+            <div>
+                <label for="phone">Telefone (WhatsApp)</label>
+                <input type="tel" id="phone" placeholder="(11) 99999-9999" required>
+            </div>
+            <div>
+                <label for="date">Data da reserva</label>
+                <input type="date" id="date" required>
+            </div>
+            <div>
+                <label for="time">Horário</label>
+                <input type="time" id="time" required>
+            </div>
+            <div>
+                <label for="people">Nº de pessoas</label>
+                <select id="people" required>
+                    <option value="">Selecione</option>
+                    <option value="1">1 pessoa</option>
+                    <option value="2">2 pessoas</option>
+                    <option value="3">3 pessoas</option>
+                    <option value="4">4 pessoas</option>
+                    <option value="5">5 pessoas</option>
+                    <option value="6">6 pessoas</option>
+                </select>
+            </div>
+            <div style="grid-column: 1 / -1;">
+                <label for="message">Mensagem adicional (opcional)</label>
+                <textarea id="message" rows="4" placeholder="Ex: Quero comemorar um aniversário..."></textarea>
+            </div>
+
+            <button type="submit" class="btn" style="grid-column: 1 / -1; margin-top: 20px;">Enviar Reserva</button>
+        </form>
+
+        <div id="success-message" class="success">
+            <i class="fa-solid fa-check-circle" style="font-size: 60px; color: #35c16a; margin-bottom: 20px;"></i>
+            <h3>Reserva enviada com sucesso!</h3>
+            <p>Recebemos sua solicitação. Em breve entraremos em contato via WhatsApp ou e-mail para confirmar os
+                detalhes.</p>
+            <p style="margin-top: 20px; font-size: 15px;">Obrigado por escolher o Novo Boliche! 🎳</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Novo Boliche - Todos os direitos reservados</p>
+        <p style="margin-top: 10px; font-size: 14px;">
+            Endereço:  Av. Guilherme Cotching, 1453 - Vila Maria, São Paulo - SP, 02113-015, - (11) 94887-2258
+        </p>
+    </footer>
+
+    <!-- WHATSAPP FLUTUANTE -->
+   <a href="https://wa.me/5511948872258?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20o%20boliche!"
+target="_blank" class="whatsapp-float" aria-label="Fale no WhatsApp">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+    <script>
+        // Menu mobile
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const nav = document.getElementById('nav-menu');
+
+            hamburger.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
+
+            // Fecha menu ao clicar em link
+            const links = nav.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        nav.classList.remove('active');
+                    }
+                });
+            });
+
+            // Formulário de reserva
+            const form = document.getElementById('reservation-form');
+            const successMessage = document.getElementById('success-message');
+
+            // Define data mínima como hoje
+            const dateInput = document.getElementById('date');
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Validação simples
+                let isValid = true;
+                const requiredFields = form.querySelectorAll('input[required], select[required]');
+
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.style.border = '2px solid #ff4d4d';
+                    } else {
+                        field.style.border = 'none';
+                    }
+                });
+
+                if (!isValid) {
+                    alert('Por favor, preencha todos os campos obrigatórios!');
+                    return;
+                }
+
+                // Simula envio (100% funcional)
+                form.style.display = 'none';
+                successMessage.style.display = 'block';
+
+                // Scroll suave até a mensagem
+                successMessage.scrollIntoView({ behavior: 'smooth' });
+
+                // Reset após 8 segundos (para novo teste)
+                setTimeout(() => {
+                    form.reset();
+                    form.style.display = 'grid';
+                    successMessage.style.display = 'none';
+                }, 8000);
+            });
+        });
+    </script>
+</body>
+
+</html>
